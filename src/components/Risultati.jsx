@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Search from "./Search";
+import { Card, Col } from "react-bootstrap";
 
 const Risultati = () => {
   const [meteoData, setMeteoData] = useState(null);
@@ -24,11 +25,29 @@ const Risultati = () => {
       <Search onSearch={handleSearch} />
       {error && <p>{error}</p>}
       {meteoData && (
-        <div>
-          <h2>{meteoData.name}</h2>
-          <p>Temperatura: {(meteoData.main.temp - 273.15).toFixed(2)}°C</p>
-          <p>Condizioni: {meteoData.weather[0].description}</p>
-        </div>
+        <Col className="d-flex justify-content-center">
+          <Card className="mt-4">
+            <Card.Body>
+              <Card.Title>
+                {meteoData.name}{" "}
+                <img
+                  style={{ width: "30px", height: "auto" }}
+                  src={`http://openweathermap.org/img/w/${meteoData.weather[0].icon}.png`}
+                  alt=""
+                />
+              </Card.Title>
+
+              <Card.Text>
+                <strong>Temperatura:</strong> {(meteoData.main.temp - 273.15).toFixed(2)}°C
+              </Card.Text>
+              <Card.Text>
+                <strong>Condizioni:</strong> {meteoData.weather[0].description}
+              </Card.Text>
+
+              <Card.Link href="#">Card Link</Card.Link>
+            </Card.Body>
+          </Card>
+        </Col>
       )}
     </div>
   );

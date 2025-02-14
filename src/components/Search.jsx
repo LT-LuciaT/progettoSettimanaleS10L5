@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Row, Button, Form } from "react-bootstrap";
+import { Row, Button, Form, Col } from "react-bootstrap";
 import "../App.css";
 
 const Search = ({ onSearch }) => {
@@ -23,19 +23,21 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <Form className="d-flex">
+    <Form className="d-flex justify-content-center">
       <Row className="flex-wrap">
-        <Form.Control
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <Button variant="outline-primary" onClick={handleSearch}>
-          Search
-        </Button>
+        <Col>
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className=""
+            aria-label="Search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <Button variant="outline-primary" onClick={handleSearch}>
+            Search
+          </Button>
+        </Col>
       </Row>
     </Form>
   );
