@@ -4,5 +4,8 @@
 }
 
 div .card-body {
-  width: 13rem;
+  max-width: 13rem;
+}
+div .row {
+  max-width: 13rem;
 }
