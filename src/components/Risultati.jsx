@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import Search from "./Search";
 import "../App.css";
 import { Card, Col } from "react-bootstrap";
@@ -44,8 +46,7 @@ const Risultati = () => {
               <Card.Text>
                 <strong>Condizioni:</strong> {meteoData.weather[0].description}
               </Card.Text>
-
-              <Card.Link href="#">Card Link</Card.Link>
+              <Link to={`/dettagli/${meteoData.coord.lat}/${meteoData.coord.lon}`}>Meteo dei prossimi giorni</Link>
             </Card.Body>
           </Card>
         </Col>
