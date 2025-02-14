@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Search from "./Search";
+import "../App.css";
 import { Card, Col } from "react-bootstrap";
 
 const Risultati = () => {
