@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../App.css";
-import { Card, Container, Row } from "react-bootstrap";
+import { Card, Container, Col, Row } from "react-bootstrap";
 
 const Dettagli = () => {
   const { lat, lon } = useParams();
@@ -50,52 +50,64 @@ const Dettagli = () => {
 
   return (
     <Container>
-      <Row>
-        <Card.Body>
-          <Card.Title>Oggi</Card.Title>
-          <Card.Text>
-            <strong>Città:</strong> {MeteoGiornaliero.name}
-          </Card.Text>
-          <Card.Text>
-            <strong>Temperatura:</strong> {(MeteoGiornaliero.main.temp - 273.15).toFixed(2)}°C
-          </Card.Text>
-          <Card.Text>
-            <strong>Temperatura minima:</strong> {(MeteoGiornaliero.main.temp_min - 273.15).toFixed(2)}°C
-          </Card.Text>
-          <Card.Text>
-            <strong>Temperatura massima:</strong> {(MeteoGiornaliero.main.temp_max - 273.15).toFixed(2)}°C
-          </Card.Text>
-          <Card.Text>
-            <strong>Pressione:</strong> {MeteoGiornaliero.main.pressure} hPa
-          </Card.Text>
-          <Card.Text>
-            <strong>Umidità:</strong> {MeteoGiornaliero.main.humidity}%
-          </Card.Text>
-          <Card.Text>
-            <strong>Condizioni:</strong> {MeteoGiornaliero.weather[0].description}
-          </Card.Text>
-          <Card.Text>
-            <strong>Icona:</strong>{" "}
-            <img
-              src={`http://openweathermap.org/img/w/${MeteoGiornaliero.weather[0].icon}.png`}
-              alt={MeteoGiornaliero.weather[0].description}
-              style={{ width: "30px", height: "auto" }}
-            />
-          </Card.Text>
-          <Card.Text>
-            <strong>Alba:</strong> {sunriseTime}
-          </Card.Text>
-          <Card.Text>
-            <strong>Tramonto:</strong> {sunsetTime}
-          </Card.Text>
-        </Card.Body>
+      <Row className="justify-content-center">
+        <Col xs={12} md={8} lg={4} style={{ width: "13rem" }}>
+          <Card className="mt-4 ">
+            <Card.Body>
+              <Card.Title>Oggi</Card.Title>
+              <Card.Text>
+                <strong>Città:</strong> {MeteoGiornaliero.name}
+              </Card.Text>
+              <Card.Text>
+                <strong>Temperatura:</strong> {(MeteoGiornaliero.main.temp - 273.15).toFixed(2)}°C
+              </Card.Text>
+              <Card.Text>
+                <strong>Temperatura minima:</strong> {(MeteoGiornaliero.main.temp_min - 273.15).toFixed(2)}°C
+              </Card.Text>
+              <Card.Text>
+                <strong>Temperatura massima:</strong> {(MeteoGiornaliero.main.temp_max - 273.15).toFixed(2)}°C
+              </Card.Text>
+              <Card.Text>
+                <strong>Pressione:</strong> {MeteoGiornaliero.main.pressure} hPa
+              </Card.Text>
+              <Card.Text>
+                <strong>Umidità:</strong> {MeteoGiornaliero.main.humidity}%
+              </Card.Text>
+              <Card.Text>
+                <strong>Condizioni:</strong> {MeteoGiornaliero.weather[0].description}
+              </Card.Text>
+              <Card.Text>
+                <strong>Icona:</strong>{" "}
+                <img
+                  src={`http://openweathermap.org/img/w/${MeteoGiornaliero.weather[0].icon}.png`}
+                  alt={MeteoGiornaliero.weather[0].description}
+                  style={{ width: "30px", height: "auto" }}
+                />
+              </Card.Text>
+              <Card.Text>
+                <strong>Alba:</strong> {sunriseTime}
+              </Card.Text>
+              <Card.Text>
+                <strong>Tramonto:</strong> {sunsetTime}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
 
-      <h2>Previsioni per i prossimi 5 giorni</h2>
-      <Row>
+      <h2 className="text-center mt-4">Previsioni per i prossimi 5 giorni</h2>
+      <Row className="justify-content-center">
         {dailyForecasts.map((forecast, index) => (
-          <Container key={index} className="d-flex justify-content-center">
-            <Card className="flex-wrap">
+          <Col
+            key={index}
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            className="mb-4 d-flex justify-content-center"
+            style={{ width: "100%", maxWidth: "13rem" }}
+          >
+            <Card style={{ width: "100%", maxWidth: "13rem" }}>
               <Card.Body>
                 <Card.Text>
                   <strong>Data:</strong> {new Date(forecast.dt_txt).toLocaleDateString()}
@@ -128,7 +140,7 @@ const Dettagli = () => {
                 </Card.Text>
               </Card.Body>
             </Card>
-          </Container>
+          </Col>
         ))}
       </Row>
     </Container>

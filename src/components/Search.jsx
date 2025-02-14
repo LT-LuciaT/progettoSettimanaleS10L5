@@ -29,7 +29,7 @@ const Search = ({ onSearch }) => {
           <Form.Control
             type="search"
             placeholder="Search"
-            className=""
+            className="mt-5"
             aria-label="Search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
