@@ -50,9 +50,9 @@ const Dettagli = () => {
 
   return (
     <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={8} lg={4} style={{ width: "13rem" }}>
-          <Card className="mt-4 ">
+      <Row className="justify-content-center mx-auto">
+        <Col xs={12} md={12} lg={4} style={{ width: "auto" }}>
+          <Card className="mt-4 p-3">
             <Card.Body>
               <Card.Title>Oggi</Card.Title>
               <Card.Text>
@@ -96,48 +96,43 @@ const Dettagli = () => {
       </Row>
 
       <h2 className="text-center mt-4">Previsioni per i prossimi 5 giorni</h2>
-      <Row className="justify-content-center">
+      <Row className=" mx-auto ">
         {dailyForecasts.map((forecast, index) => (
-          <Col
-            key={index}
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            className="mb-4 d-flex justify-content-center"
-            style={{ width: "100%", maxWidth: "13rem" }}
-          >
-            <Card style={{ width: "100%", maxWidth: "13rem" }}>
-              <Card.Body>
-                <Card.Text>
+          <Col key={index} className="p-0 px-md-2" style={{ width: "auto" }}>
+            <Card xs={2} md={2} lg={4} className="mt-4 " style={{ width: "100%" }}>
+              <Card.Body className="d-flex flex-column">
+                <div className="d-none d-md-block p-2">
                   <strong>Data:</strong> {new Date(forecast.dt_txt).toLocaleDateString()}
-                </Card.Text>
-                <Card.Text>
+                </div>
+                <div className="d-none d-md-block p-2 ">
                   <strong>Temperatura:</strong> {(forecast.main.temp - 273.15).toFixed(2)}°C
-                </Card.Text>
-                <Card.Text>
-                  <strong>Temperatura minima:</strong> {(forecast.main.temp_min - 273.15).toFixed(2)}°C
-                </Card.Text>
-                <Card.Text>
-                  <strong>Temperatura massima:</strong> {(forecast.main.temp_max - 273.15).toFixed(2)}°C
-                </Card.Text>
-                <Card.Text>
+                </div>
+                <div className="p-2">
+                  <strong className="d-none d-md-block">Temperatura minima:</strong>{" "}
+                  {(forecast.main.temp_min - 273.15).toFixed(2)}°C
+                </div>
+                <div className="p-2">
+                  <strong className="d-none d-md-block ">Temperatura massima:</strong>{" "}
+                  {(forecast.main.temp_max - 273.15).toFixed(2)}°C
+                </div>
+                <div className="d-none d-md-block p-2">
                   <strong>Pressione:</strong> {forecast.main.pressure} hPa
-                </Card.Text>
-                <Card.Text>
+                </div>
+                <div className="d-none d-md-block p-2">
                   <strong>Umidità:</strong> {forecast.main.humidity}%
-                </Card.Text>
-                <Card.Text>
-                  <strong>Condizioni:</strong> {forecast.weather[0].description}
-                </Card.Text>
-                <Card.Text>
-                  <strong>Icona:</strong>{" "}
+                </div>
+                <div className="p-2">
+                  <strong className="d-none d-md-block ">Condizioni:</strong>{" "}
+                  <strong>{forecast.weather[0].description}</strong>
+                </div>
+                <div className="p-2">
+                  <strong className="d-none d-md-block ">Icona:</strong>{" "}
                   <img
                     src={`http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}
                     alt={forecast.weather[0].description}
-                    style={{ width: "30px", height: "auto" }}
+                    style={{ width: "70px", height: "auto" }}
                   />
-                </Card.Text>
+                </div>
               </Card.Body>
             </Card>
           </Col>
