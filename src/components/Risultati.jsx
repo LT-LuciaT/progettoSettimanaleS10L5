@@ -29,7 +29,7 @@ const Risultati = () => {
       {error && <p>{error}</p>}
       {meteoData && (
         <Col className="d-flex justify-content-center">
-          <Card className="mt-4">
+          <Card className="mt-4 p-2">
             <Card.Body>
               <Card.Title>
                 {meteoData.name}{" "}
@@ -46,7 +46,12 @@ const Risultati = () => {
               <Card.Text>
                 <strong>Condizioni:</strong> {meteoData.weather[0].description}
               </Card.Text>
-              <Link to={`/dettagli/${meteoData.coord.lat}/${meteoData.coord.lon}`}>Meteo dei prossimi giorni</Link>
+              <Link
+                style={{ textDecoration: "none", color: "rgb(71, 157, 211)" }}
+                to={`/dettagli/${meteoData.coord.lat}/${meteoData.coord.lon}`}
+              >
+                Meteo dei prossimi giorni
+              </Link>
             </Card.Body>
           </Card>
         </Col>

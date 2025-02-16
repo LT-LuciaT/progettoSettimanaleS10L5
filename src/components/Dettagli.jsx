@@ -51,8 +51,8 @@ const Dettagli = () => {
   return (
     <Container>
       <Row className="justify-content-center mx-auto">
-        <Col xs={12} md={12} lg={4} style={{ width: "auto" }}>
-          <Card className="mt-4 p-3">
+        <Col xs={12} md={12} lg={4} style={{ width: "100%" }}>
+          <Card className="mt-4 p-3 ms-4 ">
             <Card.Body>
               <Card.Title>Oggi</Card.Title>
               <Card.Text>
@@ -100,7 +100,7 @@ const Dettagli = () => {
         {dailyForecasts.map((forecast, index) => (
           <Col key={index} className="p-0 px-md-2" style={{ width: "auto" }}>
             <Card xs={2} md={2} lg={4} className="mt-4 " style={{ width: "100%" }}>
-              <Card.Body className="d-flex flex-column">
+              <Card.Body className="d-flex flex-column ms-2 mt-4">
                 <div className="d-none d-md-block p-2">
                   <strong>Data:</strong> {new Date(forecast.dt_txt).toLocaleDateString()}
                 </div>

@@ -2,8 +2,25 @@
   font-size: 2rem;
   padding: 2rem 0em;
 }
+h2 {
+  color: rgb(71, 157, 211);
+}
+.navbar {
+  background-color: rgb(231, 246, 255);
+  -webkit-box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.23);
+  box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.23);
+}
+div .card:hover {
+  background-color: rgba(71, 157, 211, 0.532);
+  color: white;
+}
+
 div .card {
   border-radius: 30px;
+  -webkit-box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.23);
+  box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.23);
 }
 div .card-body {
   width: 100%;
